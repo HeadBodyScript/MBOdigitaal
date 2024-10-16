@@ -25,6 +25,8 @@ class Auth
             $role = null;
             // get role name
             $tokenRole = $decoded->data->roleName;
+            $tokenRole = strtolower($tokenRole);
+            
             return $tokenRole;
         }
     }

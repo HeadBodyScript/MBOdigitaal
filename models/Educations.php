@@ -9,6 +9,20 @@ use Ramsey\Uuid\Uuid;
 
 class Education
 {
+    // gets all subjects for the selected education
+    public static function selectAllElectives() {
+        global $db;
+
+            // put the LIKE in a var in the request so its dynamic
+        $sql_selectAll_levels = "SELECT * FROM `levels` WHERE `educationID` LIKE '6e606817-054b-4752-b801-0459dd8c2789' AND `level` = 1 ";
+        $stmt = $db->prepare($sql_selectAll_levels);
+
+        if ($stmt->execute()) {
+            $Electives = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $Electives;
+        }    
+    }
+
     // insert voegt één nieuwe opleiding toe aan de tabel education.
     // Er wordt een UUIDv4 gegeneert als unieke ID.
     // Deze UUID wordt opgeslagen string (niet de snelste methode).

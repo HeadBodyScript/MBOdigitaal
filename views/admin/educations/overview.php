@@ -6,7 +6,7 @@
 </head>
 
 <body class="bg-stone-950">
-    <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/topbar.php' ?>
+    <?php require '../views/templates/' . $UserRole . 'menu.php' ?>
 
     <div class="mt-6 mx-auto px-4 bg-stone-950">
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/menu.php' ?>

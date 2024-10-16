@@ -15,6 +15,9 @@ require_once __DOCUMENTROOT__ . '/errors/default.php';
 // heeft. De rollen "student" en "student" hebben toegang.
 // Voor nu geven we nog iedereen toegang.
 
+require __DOCUMENTROOT__ . '/models/Auth.php';
+$UserRole = Auth::checkRole();
+
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
 // Op dit moment hier niet van toepassing.

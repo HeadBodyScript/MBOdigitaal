@@ -27,9 +27,12 @@ $UserRole = Auth::checkRole();
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
 
+require __DOCUMENTROOT__ . '/models/Educations.php';
+$Electives = Education::selectAllElectives();
+
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$title = "Challenges Levels";
-require __DOCUMENTROOT__ . '/views/levels/challenges.php';
+$title = "testChallenges Levels";
+require __DOCUMENTROOT__ . '/views/level/challenges-student.php';
