@@ -7,7 +7,7 @@
 
 <body>
     <?php require __DOCUMENTROOT__ . '/views/templates/' . $UserRole .'menu.php' ?>
-    <?php echo $EducationID["educationId"] ?>
+
     <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white mx-auto">
         <h2 class="text-2xl font-bold dark:text-black">Levels - Student</h2>
         <!-- <p class="my-4 font-bold text-gray-700">Hieronder staat het overzicht van die te maken hebben met het

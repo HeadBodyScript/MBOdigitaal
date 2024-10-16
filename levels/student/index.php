@@ -16,11 +16,7 @@ require_once __DOCUMENTROOT__ . '/errors/default.php';
 // Voor nu geven we nog iedereen toegang.
 
 require __DOCUMENTROOT__ . '/models/Auth.php';
-// $UserRole = Auth::checkRole();
-// $UserID = Auth::getTokenId();
-
-// GET THE USERS EDUCATIN ID
-
+$UserRole = Auth::checkRole();
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
@@ -32,12 +28,11 @@ require __DOCUMENTROOT__ . '/models/Auth.php';
 // informatie te bewerken.
 
 require __DOCUMENTROOT__ . '/models/Educations.php';
-$EducationID = Education::getUserEducationID($UserID);
-$Electives = Education::selectAllElectives($EducationID["educationId"]);
+$Electives = Education::selectAllElectives();
 
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$title = $EducationID["educationId"];
+$title = "testChallenges Levels";
 require __DOCUMENTROOT__ . '/views/level/challenges-student.php';
