@@ -10,11 +10,11 @@ use Ramsey\Uuid\Uuid;
 class Education
 {
     // gets all subjects for the selected education
-    public static function selectAllElectives() {
+    public static function selectAllElectives($EducationID) {
         global $db;
 
             // put the LIKE in a var in the request so its dynamic
-        $sql_selectAll_levels = "SELECT * FROM `levels` WHERE `educationID` LIKE '6e606817-054b-4752-b801-0459dd8c2789' AND `level` = 1 ";
+        $sql_selectAll_levels = "SELECT * FROM `levels` WHERE `educationId` LIKE '$EducationID' AND `level` = 1 ";
         $stmt = $db->prepare($sql_selectAll_levels);
 
         if ($stmt->execute()) {
@@ -59,6 +59,26 @@ class Education
         } else {
             return false;
         }
+    }
+
+    // Select the users education id
+
+    public static function getUserEducationID($UserID)
+    {
+        global $db;
+
+        $sql_select_educations_by_id = "SELECT educationId FROM user WHERE id=?;";
+        $stmt = $db->prepare($sql_select_educations_by_id);
+
+        
+        if ($stmt->execute([$UserID])) {
+            $educations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($educations as $education) {
+                return $education;
+            }
+        }
+        return $education["educationId"];
     }
 
     // select selecteert één opleiding op basis van een gegeven id.
